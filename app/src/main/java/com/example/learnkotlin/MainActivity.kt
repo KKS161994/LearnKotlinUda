@@ -43,7 +43,8 @@ class MainActivity:AppCompatActivity(),View.OnClickListener{
                 4 -> R.drawable.dice_4
                 5 -> R.drawable.dice_5
                 6 -> R.drawable.dice_6
-
+                else -> R.drawable.dice_1
             }
+        diceImage.setImageResource(diceImageDrawable)
     }
 }
