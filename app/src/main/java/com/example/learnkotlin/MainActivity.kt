@@ -34,6 +34,7 @@ class MainActivity:AppCompatActivity(),View.OnClickListener{
 
     }
     //invoked on button click
+    //Changing image on button click
     private fun rollDice(): Unit {
             val randomNum = Random().nextInt(6)+1
             val diceImageDrawable = when(randomNum){
