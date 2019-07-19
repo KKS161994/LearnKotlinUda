@@ -15,11 +15,14 @@ class AboutMe : AppCompatActivity(), View.OnClickListener {
     private lateinit var nickNameText: EditText
     private lateinit var nickName: TextView
     private lateinit var dataBinding: ActivityAboutMeBinding
+    private var myName: MyName = MyName("kartik","kone")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_about_me)
+
         dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_about_me)
         initView()
+        dataBinding.nickNameTextView.text = myName.name
         dataBinding.doneButton.setOnClickListener(this)
 
     }

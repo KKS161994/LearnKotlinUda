@@ -2,18 +2,23 @@
 <layout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="MyName"
+        type="com.example.learnkotlin.MyName"/>
+    </data>
 <LinearLayout  android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
     <TextView
 
-            android:text="@string/name"
+            android:text="@{MyName.name}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/nickNameTextView"
             android:textAlignment="center"
             style="@style/nameStyle"/>
+
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
