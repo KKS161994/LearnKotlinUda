@@ -5,12 +5,24 @@
               android:layout_height="match_parent">
 
     <TextView
+
             android:text="@string/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView"
+            android:id="@+id/nickNameTextView"
             android:textAlignment="center"
             style="@style/nameStyle"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textAlignment="center"
+            android:id="@+id/nickName" style="@style/nameStyle" android:hint="@string/nick_name_hint"
+            android:inputType="text"/>
+    <Button
+            android:text="@string/done_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/done_button" style="@style/nameStyle"/>
     <ImageView
 
             android:layout_width="match_parent"
