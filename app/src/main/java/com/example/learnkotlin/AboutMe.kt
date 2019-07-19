@@ -6,33 +6,46 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import com.example.learnkotlin.databinding.ActivityAboutMeBinding
 
-class AboutMe:AppCompatActivity(),View.OnClickListener{
+class AboutMe : AppCompatActivity(), View.OnClickListener {
 
-    lateinit var doneButton:Button
-    lateinit var nickNameText:EditText
-    lateinit var nickName: TextView
+    private lateinit var doneButton: Button
+    private lateinit var nickNameText: EditText
+    private lateinit var nickName: TextView
+    private lateinit var dataBinding: ActivityAboutMeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_about_me)
+        //setContentView(R.layout.activity_about_me)
+        dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_about_me)
         initView()
+        dataBinding.doneButton.setOnClickListener(this)
 
     }
 
     private fun initView() {
-        doneButton = findViewById(R.id.done_button)
-        nickNameText = findViewById(R.id.nickName)
-        nickName = findViewById(R.id.nickNameTextView)
+//        doneButton = findViewById(R.id.done_button)
+//        nickNameText = findViewById(R.id.nickName)
+//        nickName = findViewById(R.id.nickNameTextView)
+        dataBinding.nickNameTextView.visibility = View.GONE
     }
 
     override fun onClick(p0: View?) {
-           when(p0?.id){
-               R.id.done_button -> addNickname()
-           }
+        when (p0?.id) {
+            R.id.done_button -> addNickname()
+        }
     }
 
     private fun addNickname() {
-        doneButton.visibility = View.GONE
-        nickName.text = nickNameText.text.toString()
+        dataBinding.apply {
+            dataBinding.doneButton.visibility = View.GONE
+            //invalidateAll()
+            dataBinding.nickNameTextView.text = dataBinding.nickName.text.toString()
+            dataBinding.nickName.visibility = View.GONE
+            dataBinding.nickNameTextView.visibility = View.VISIBLE
+
+
+        }
     }
 }
